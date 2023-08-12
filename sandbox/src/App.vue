@@ -1,14 +1,19 @@
 <script lang="js">
 import Counter from "./components/Counter.vue"
 import BenderStatistics from "./components/BenderStatistics.vue";
+import BaseButton from "./components/BaseButton.vue";
+import PokemonComponent from "./components/PokemonComponent.vue";
 
 export default {
   components: {
+    PokemonComponent,
+    BaseButton,
     Counter,
     BenderStatistics,
   },
   data() {
     return {
+      user: {name: "John"},
       newCharacter: "",
       characters: [
         { name: "Harry", gender: "male" },
@@ -40,6 +45,11 @@ export default {
     },
   },
   methods: {
+    handleNameChange() {
+      console.log("Hello")
+      this.user.name = "Tonny"
+
+    },
     favoriteCharacter(name) {
       console.log(name + " is my favorite character!");
       this.favoriteCharacters.push(name)
@@ -57,7 +67,10 @@ export default {
 
 <template>
   <div>
-    <Counter />
+    <PokemonComponent />
+    <hr>
+    <BaseButton>Arrow Left - Hi!</BaseButton>
+    <Counter :user="user" @change-name="handleNameChange"/>
     <BenderStatistics :characters="characters"/>
   <p v-if="characters.length === 0">There are no characters</p>
       <ul v-else>
@@ -77,5 +90,17 @@ export default {
       <button v-on:click="addCharacter" @keyup.enter="addCharacter">Add character</button>
   </div>
 </template>
+
+<style>
+html {
+  background-color: papayawhip
+}
+
+button {
+  border: 5px solid red;
+}
+
+
+</style>
 
 
