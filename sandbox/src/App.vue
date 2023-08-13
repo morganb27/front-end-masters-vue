@@ -3,9 +3,11 @@ import Counter from "./components/Counter.vue"
 import BenderStatistics from "./components/BenderStatistics.vue";
 import BaseButton from "./components/BaseButton.vue";
 import PokemonComponent from "./components/PokemonComponent.vue";
+import Pokedex from "./components/Pokedex.vue";
 
 export default {
   components: {
+    Pokedex,
     PokemonComponent,
     BaseButton,
     Counter,
@@ -67,6 +69,8 @@ export default {
 
 <template>
   <div>
+    <Pokedex />
+    <hr>
     <PokemonComponent />
     <hr>
     <BaseButton>Arrow Left - Hi!</BaseButton>
