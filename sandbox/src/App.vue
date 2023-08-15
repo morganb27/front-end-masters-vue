@@ -4,9 +4,11 @@ import BenderStatistics from "./components/BenderStatistics.vue";
 import BaseButton from "./components/BaseButton.vue";
 import PokemonComponent from "./components/PokemonComponent.vue";
 import Pokedex from "./components/Pokedex.vue";
+import PiniaCounter from "./components/PiniaCounter.vue";
 
 export default {
   components: {
+    PiniaCounter,
     Pokedex,
     PokemonComponent,
     BaseButton,
@@ -69,6 +71,11 @@ export default {
 
 <template>
   <div>
+    <PiniaCounter />
+    <hr>
+    <router-link to="/">Home</router-link>
+    <router-link to="/pokedex">Pokedex</router-link>
+    <router-view></router-view>
     <Pokedex />
     <hr>
     <PokemonComponent />
